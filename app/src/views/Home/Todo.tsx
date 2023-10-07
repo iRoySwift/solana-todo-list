@@ -11,21 +11,16 @@ import { Close as CloseIcon } from "@mui/icons-material";
 
 interface Props {
     content: string;
-    id: number;
-    hasComplete: boolean;
-    deleteTodo: (id: number) => void;
-    updateTodo: (id: number, checked: boolean) => void;
-    updateTodoContent: (id: number, content: string) => void;
+    idx: string;
+    marked: boolean;
+    deleteTodo: (idx: string) => void;
+    markTodo: (idx: string, checked: boolean) => void;
+    updateTodoContent: (idx: string, content: string) => void;
 }
+
 const Todo: React.FC<Props> = props => {
-    let {
-        content,
-        id,
-        hasComplete,
-        deleteTodo,
-        updateTodo,
-        updateTodoContent,
-    } = props;
+    let { content, idx, marked, deleteTodo, markTodo, updateTodoContent } =
+        props;
     const [isEdit, setIsEdit] = useState(false);
     const [lineKey, setLineKey] = useState(content);
     const [] = useState("");
@@ -39,7 +34,7 @@ const Todo: React.FC<Props> = props => {
     };
     const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.key !== "Enter" || !lineKey.trim().length) return;
-        updateTodoContent(id, lineKey);
+        updateTodoContent(idx, lineKey);
         setIsEdit(false);
     };
 
@@ -47,8 +42,8 @@ const Todo: React.FC<Props> = props => {
         <TodoBox>
             <Box className="left">
                 <Checkbox
-                    checked={hasComplete}
-                    onChange={(_event, checked) => updateTodo(id, checked)}
+                    checked={marked}
+                    onChange={(_event, checked) => markTodo(idx, checked)}
                 />
                 {isEdit ? (
                     <OutlinedInput
@@ -59,7 +54,7 @@ const Todo: React.FC<Props> = props => {
                     />
                 ) : (
                     <Typography
-                        className={hasComplete ? "checked" : ""}
+                        className={marked ? "checked" : ""}
                         variant="h3"
                         onClick={() => setIsEdit(true)}>
                         {content}
@@ -71,7 +66,7 @@ const Todo: React.FC<Props> = props => {
                     className="close"
                     color="error"
                     aria-label="delete"
-                    onClick={() => deleteTodo(id)}>
+                    onClick={() => deleteTodo(idx)}>
                     <CloseIcon />
                 </IconButton>
             )}
