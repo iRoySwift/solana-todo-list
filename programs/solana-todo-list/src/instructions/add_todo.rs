@@ -12,6 +12,8 @@ pub fn add_todo(ctx: Context<AddTodo>, content: String) -> Result<()> {
 
     user_profile.last_todo = user_profile.last_todo.checked_add(1).unwrap();
     user_profile.todo_account = user_profile.todo_account.checked_add(1).unwrap();
+    msg!("{:?}", todo_account);
+    msg!("{:?}", user_profile);
     Ok(())
 }
 

@@ -68,7 +68,7 @@ describe("solana-todo-list", () => {
                 systemProgram: anchor.web3.SystemProgram.programId,
             })
             .rpc();
-        console.log("user profile transaction signature", tx);
+        console.log("create a user profile pad:", tx);
     });
 
     let [todoAccountPda] = derivePageVisitsPda(
@@ -76,7 +76,7 @@ describe("solana-todo-list", () => {
         testUser.publicKey
     );
     it("Create the todo tracking PDA", async () => {
-        await program.methods
+        const tx = await program.methods
             .addTodo("test")
             .accounts({
                 todoAccount: todoAccountPda,
@@ -87,16 +87,17 @@ describe("solana-todo-list", () => {
             })
             .signers([payer.payer])
             .rpc();
+        console.log("Create the todo tracking PDA:", tx);
     });
     it("look up todo list", async () => {
         const userProfile = await program.account.userProfile.fetch(
             await userProfilePda
         );
-        console.log("userProfile: " + userProfile);
+        console.log("userProfile: " + userProfile.todoAccount);
 
         const todoAccount = await program.account.todoAccount.all([
             authorFilter(payer.publicKey.toString()),
         ]);
-        console.log("todoAccount: " + todoAccount);
+        console.log("todoAccount: " + todoAccount[0].account);
     });
 });
