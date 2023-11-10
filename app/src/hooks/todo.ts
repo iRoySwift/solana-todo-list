@@ -11,7 +11,7 @@ export type iState = "all" | "active" | "completed";
 
 type iTodo = {
     account: {
-        idx: string; //生成key
+        idx: number; //生成key
         content: string;
         marked: boolean; //判断li是否被勾选
     };
@@ -20,21 +20,21 @@ type iTodo = {
 const staticTodos = [
     {
         account: {
-            idx: "0",
+            idx: 0,
             content: "learn solana",
             marked: false,
         },
     },
     {
         account: {
-            idx: "1",
+            idx: 1,
             content: "learn solana",
             marked: false,
         },
     },
     {
         account: {
-            idx: "2",
+            idx: 2,
             content: "learn solana",
             marked: false,
         },
@@ -58,13 +58,15 @@ export const useTodo = () => {
 
     const addTodo = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.key !== "Enter" || !input.trim().length) return;
+        const idx =
+            (todoList.length > 0
+                ? todoList[todoList.length - 1].account.idx
+                : 0) + 1;
         setTodoList(pre => [
             ...pre,
             {
                 account: {
-                    idx: `${parseInt(
-                        todoList[todoList.length - 1].account.idx
-                    )} + 1`,
+                    idx,
                     content: input,
                     marked: false,
                 },
@@ -73,7 +75,7 @@ export const useTodo = () => {
         setInput("");
     };
 
-    const markTodo = (idx: string, checked: boolean) => {
+    const markTodo = (idx: number, checked: boolean) => {
         setTodoList(preTodoList =>
             preTodoList.map(todo => {
                 if (todo.account.idx === idx) {
@@ -84,7 +86,7 @@ export const useTodo = () => {
         );
     };
 
-    const updateTodoContent = (idx: string, content: string) => {
+    const updateTodoContent = (idx: number, content: string) => {
         setTodoList(preTodoList =>
             preTodoList.map(todo => {
                 if (todo.account.idx === idx) {
@@ -95,7 +97,7 @@ export const useTodo = () => {
         );
     };
 
-    const deleteTodo = (idx: string) => {
+    const deleteTodo = (idx: number) => {
         setTodoList(preTodoList =>
             preTodoList.filter(todo => todo.account.idx !== idx)
         );
