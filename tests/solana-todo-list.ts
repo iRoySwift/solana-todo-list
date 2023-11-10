@@ -17,8 +17,8 @@ describe("solana-todo-list", () => {
     //     console.log("Your transaction signature", tx);
     // });
 
+    /**创建测试账号 */
     let testUser = anchor.web3.Keypair.generate();
-
     it("Create a test user", async () => {
         const ix = anchor.web3.SystemProgram.createAccount({
             fromPubkey: payer.publicKey,
@@ -41,29 +41,19 @@ describe("solana-todo-list", () => {
         );
         console.log(`airdrop:${signature}`);
     });
-    function derivePageVisitsPda(
-        seed: string,
-        userPubkey: anchor.web3.PublicKey
-    ) {
+    function derivePageVisitsPda(seed: string) {
         return anchor.web3.PublicKey.findProgramAddressSync(
-            [
-                Buffer.from(seed),
-                userPubkey.toBuffer(),
-                payer.publicKey.toBuffer(),
-            ],
+            [Buffer.from(seed), payer.publicKey.toBuffer()],
             program.programId
         );
     }
-    let [userProfilePda] = derivePageVisitsPda(
-        "USER_STATE",
-        testUser.publicKey
-    );
-    it("create a user profile pad", async () => {
+    let [userProfilePda] = derivePageVisitsPda("USER_ACCOUNT8");
+    it("init a user profile pad", async () => {
         const tx = await program.methods
             .initializeUser()
             .accounts({
-                userProfile: userProfilePda,
-                user: testUser.publicKey,
+                userAccount: userProfilePda,
+                // user: testUser.publicKey,
                 authority: payer.publicKey,
                 systemProgram: anchor.web3.SystemProgram.programId,
             })
@@ -71,17 +61,20 @@ describe("solana-todo-list", () => {
         console.log("create a user profile pad:", tx);
     });
 
-    let [todoAccountPda] = derivePageVisitsPda(
-        "TODO_STATE",
-        testUser.publicKey
-    );
-    it("Create the todo tracking PDA", async () => {
+    function deriveTodoPda(seed: string) {
+        return anchor.web3.PublicKey.findProgramAddressSync(
+            [Buffer.from(seed), payer.publicKey.toBuffer(), Buffer.from([0])],
+            program.programId
+        );
+    }
+    let [todoAccountPda] = deriveTodoPda("TODO_ACCOUNT8");
+    it("add todo to PDA", async () => {
         const tx = await program.methods
             .addTodo("test")
             .accounts({
                 todoAccount: todoAccountPda,
-                userProfile: userProfilePda,
-                user: testUser.publicKey,
+                userAccount: userProfilePda,
+                // user: testUser.publicKey,
                 authority: payer.publicKey,
                 systemProgram: anchor.web3.SystemProgram.programId,
             })
@@ -89,15 +82,63 @@ describe("solana-todo-list", () => {
             .rpc();
         console.log("Create the todo tracking PDA:", tx);
     });
+
+    it("update todo", async () => {
+        const tx = await program.methods
+            .markTodo(0)
+            .accounts({
+                todoAccount: todoAccountPda,
+                userAccount: userProfilePda,
+                // user: testUser.publicKey,
+                authority: payer.publicKey,
+                systemProgram: anchor.web3.SystemProgram.programId,
+            })
+            .signers([payer.payer])
+            .rpc();
+        console.log("mark Todo:", tx);
+    });
+
     it("look up todo list", async () => {
-        const userProfile = await program.account.userProfile.fetch(
+        const userAccount = await program.account.userAccount.fetch(
             await userProfilePda
         );
-        console.log("userProfile: " + userProfile.todoAccount);
+        console.log("userAccount: " + JSON.stringify(userAccount));
 
         const todoAccount = await program.account.todoAccount.all([
             authorFilter(payer.publicKey.toString()),
         ]);
-        console.log("todoAccount: " + todoAccount[0].account);
+        console.log(
+            "todoAccount: " + todoAccount[0].account,
+            JSON.stringify(todoAccount)
+        );
+    });
+
+    it("remove todo", async () => {
+        const tx = await program.methods
+            .removeTodo(0)
+            .accounts({
+                todoAccount: todoAccountPda,
+                userAccount: userProfilePda,
+                authority: payer.publicKey,
+                systemProgram: anchor.web3.SystemProgram.programId,
+            })
+            .signers([payer.payer])
+            .rpc();
+        console.log("remove todo:", tx);
+    });
+
+    it("look up todo list", async () => {
+        const userAccount = await program.account.userAccount.fetch(
+            await userProfilePda
+        );
+        console.log("userAccount: " + JSON.stringify(userAccount));
+
+        const todoAccount = await program.account.todoAccount.all([
+            authorFilter(payer.publicKey.toString()),
+        ]);
+        console.log(
+            "todoAccount: " + todoAccount[0].account,
+            JSON.stringify(todoAccount)
+        );
     });
 });

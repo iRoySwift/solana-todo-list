@@ -1,49 +1,31 @@
 use anchor_lang::prelude::*;
-
-use crate::states::todo::{TodoAccount, UserProfile};
+use crate::states::todo::TodoAccount;
+use crate::states::user::UserAccount;
 
 pub fn add_todo(ctx: Context<AddTodo>, content: String) -> Result<()> {
     let todo_account = &mut ctx.accounts.todo_account;
-    let user_profile = &mut ctx.accounts.user_profile;
-    todo_account.authority = ctx.accounts.authority.key();
-    todo_account.idx = user_profile.last_todo;
+    let user_account = &mut ctx.accounts.user_account;
+    let authority = &ctx.accounts.authority;
+
+    todo_account.authority = authority.key();
+    todo_account.idx = user_account.last_todo;
     todo_account.content = content;
     todo_account.marked = false;
 
-    user_profile.last_todo = user_profile.last_todo.checked_add(1).unwrap();
-    user_profile.todo_account = user_profile.todo_account.checked_add(1).unwrap();
-    msg!("{:?}", todo_account);
-    msg!("{:?}", user_profile);
+    user_account.last_todo = user_account.last_todo.checked_add(1).unwrap();
+    user_account.todo_total = user_account.todo_total.checked_add(1).unwrap();
+
     Ok(())
 }
 
-#[derive(Accounts, Debug)]
+#[derive(Accounts)]
+#[instruction()]
 pub struct AddTodo<'info> {
-    #[account(
-        init,
-        payer = authority,
-        space = TodoAccount::ACCOUNT_SPACE,
-        seeds = [
-            TodoAccount::SEED_PREFIX,
-            user.key().as_ref(),
-            authority.key().as_ref(),
-        ],
-        bump,
-    )]
-    todo_account: Account<'info, TodoAccount>,
-    #[account(
-        mut,
-        seeds = [
-            UserProfile::SEED_PREFIX,
-            user.key().as_ref(),
-            authority.key().as_ref(),
-        ],
-        bump,
-        has_one = authority
-    )]
-    user_profile: Account<'info, UserProfile>,
-    user: SystemAccount<'info>,
+    #[account(init,payer=authority,space=TodoAccount::ACCOUNT_SPACE,seeds=[TodoAccount::SEED_PREFIX,authority.key().as_ref(),&[user_account.last_todo as u8].as_ref()],bump)]
+    pub todo_account: Account<'info, TodoAccount>,
+    #[account(mut,has_one=authority,seeds=[UserAccount::SEED_PREFIX,authority.key().as_ref()],bump)]
+    pub user_account: Account<'info, UserAccount>,
     #[account(mut)]
-    authority: Signer<'info>,
-    system_program: Program<'info, System>,
+    pub authority: Signer<'info>,
+    pub system_program: Program<'info, System>,
 }
