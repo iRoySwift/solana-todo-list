@@ -11,11 +11,11 @@ import { Close as CloseIcon } from "@mui/icons-material";
 
 interface Props {
     content: string;
-    idx: string;
+    idx: number;
     marked: boolean;
-    deleteTodo: (idx: string) => void;
-    markTodo: (idx: string, checked: boolean) => void;
-    updateTodoContent: (idx: string, content: string) => void;
+    deleteTodo: (idx: number) => void;
+    markTodo: (idx: number, checked: boolean) => void;
+    updateTodoContent: (idx: number, content: string) => void;
 }
 
 const Todo: React.FC<Props> = props => {
