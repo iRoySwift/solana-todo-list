@@ -4,8 +4,12 @@ use crate::states::todo::TodoAccount;
 use crate::states::user::UserAccount;
 
 pub fn remove_todo(ctx: Context<RemoveTodo>, _todo_idx: u8) -> Result<()> {
+    //Decrement todo total count
     let user_account = &mut ctx.accounts.user_account;
     user_account.todo_total = user_account.todo_total.checked_sub(1).unwrap();
+
+    // No Need to decrease last todo idx
+    // Todo PDA already closed in Context
     Ok(())
 }
 
