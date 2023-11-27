@@ -21,6 +21,9 @@ pub mod solana_todo_list {
     pub fn mark_todo(ctx: Context<MarkTodo>, todo_idx: u8) -> Result<()> {
         instructions::mark_todo::mark_todo(ctx, todo_idx)
     }
+    pub fn update_todo(ctx: Context<UpdateTodo>, todo_idx: u8, content: String) -> Result<()> {
+        instructions::update_todo::update_todo(ctx, todo_idx, content)
+    }
     pub fn remove_todo(ctx: Context<RemoveTodo>, todo_idx: u8) -> Result<()> {
         instructions::remove_todo::remove_todo(ctx, todo_idx)
     }

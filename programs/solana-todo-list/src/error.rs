@@ -10,4 +10,6 @@ pub enum TodoError {
     MathOverflow,
     #[msg("Already Marked")]
     AlreadyMarked,
+    #[msg("Already Marked can't update")]
+    UpdateContentMarked,
 }
