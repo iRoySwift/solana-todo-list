@@ -12,5 +12,5 @@ impl UserAccount {
     pub const ACCOUNT_SPACE: usize = 8 + std::mem::size_of::<UserAccount>();
 
     #[constant]
-    pub const SEED_PREFIX: &[u8] = b"USER_ACCOUNT8";
+    pub const SEED_PREFIX: &[u8] = b"USER_ACCOUNT9";
 }

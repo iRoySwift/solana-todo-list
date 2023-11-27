@@ -91,8 +91,8 @@ export const useTodo = () => {
         }
     }, [connection, anchorWallet]);
 
-    /** get use pda */
-    const getUserPda = useCallback(() => {
+    /** derive use pda */
+    const deriveUserPda = useCallback(() => {
         if (!(publicKey && program)) return;
         const [userPda, userBump] =
             anchor.web3.PublicKey.findProgramAddressSync(
@@ -102,8 +102,8 @@ export const useTodo = () => {
         return userPda;
     }, [publicKey, program]);
 
-    /** get todo pda */
-    const getTodoPda = useCallback(
+    /** derive todo pda */
+    const deriveTodoPda = useCallback(
         (lastTodo: number) => {
             if (!(publicKey && program)) return;
             const [todoPda, todoBump] =
@@ -146,8 +146,8 @@ export const useTodo = () => {
     const addTodo = async (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.key !== "Enter" || !input.trim().length) return;
         if (!(publicKey && program)) return;
-        let userPda = getUserPda();
-        let todoPda = getTodoPda(lastTodo);
+        let userPda = deriveUserPda();
+        let todoPda = deriveTodoPda(lastTodo);
         if (!userPda || !todoPda) return;
         setTransactionPending(true);
         const ts = await program.methods
@@ -185,8 +185,8 @@ export const useTodo = () => {
 
     const markTodo = (idx: number, checked: boolean) => {
         if (!(publicKey && program)) return;
-        let userPda = getUserPda();
-        let todoPda = getTodoPda(idx);
+        let userPda = deriveUserPda();
+        let todoPda = deriveTodoPda(idx);
         if (!userPda || !todoPda) return;
         setTransactionPending(true);
         program.methods
@@ -221,8 +221,8 @@ export const useTodo = () => {
 
     const updateTodo = (idx: number, content: string) => {
         if (!(publicKey && program)) return;
-        let userPda = getUserPda();
-        let todoPda = getTodoPda(idx);
+        let userPda = deriveUserPda();
+        let todoPda = deriveTodoPda(idx);
         if (!userPda || !todoPda) return;
         setTransactionPending(true);
         return program.methods
@@ -253,8 +253,8 @@ export const useTodo = () => {
 
     const removeTodo = (idx: number) => {
         if (!(publicKey && program)) return;
-        let userPda = getUserPda();
-        let todoPda = getTodoPda(idx);
+        let userPda = deriveUserPda();
+        let todoPda = deriveTodoPda(idx);
         if (!userPda || !todoPda) return;
         setTransactionPending(true);
         program.methods
@@ -298,7 +298,7 @@ export const useTodo = () => {
         if (!(publicKey && program) && initialized) return;
         try {
             setTransactionPending(true);
-            let userPda = getUserPda();
+            let userPda = deriveUserPda();
             if (!userPda) return;
             const tx = await program?.methods
                 .initializeUser()
@@ -314,7 +314,7 @@ export const useTodo = () => {
             console.log(error);
             toast.error(error!.toString());
         }
-    }, [getUserPda, initialized, program, publicKey]);
+    }, [deriveUserPda, initialized, program, publicKey]);
 
     /** 获取todo数据 */
     const getTodoAccount = useCallback(async () => {
@@ -329,7 +329,7 @@ export const useTodo = () => {
     const init = useCallback(async () => {
         if (!(publicKey && program && !transactionPending)) return;
         setLoading(true);
-        let userPda = getUserPda();
+        let userPda = deriveUserPda();
         if (!userPda) return;
         program?.account.userAccount
             .fetch(await userPda)
@@ -345,7 +345,7 @@ export const useTodo = () => {
             });
     }, [
         getTodoAccount,
-        getUserPda,
+        deriveUserPda,
         initializeUser,
         program,
         publicKey,

@@ -11,11 +11,23 @@ describe("solana-todo-list", () => {
     const payer = provider.wallet as anchor.Wallet;
     const program = anchor.workspace.SolanaTodoList as Program<SolanaTodoList>;
 
-    // it("Is initialized!", async () => {
-    //     // Add your test here.
-    //     const tx = await program.methods.initialize().rpc();
-    //     console.log("Your transaction signature", tx);
-    // });
+    function deriveUserPda() {
+        return anchor.web3.PublicKey.findProgramAddressSync(
+            [Buffer.from("USER_ACCOUNT9"), payer.publicKey.toBuffer()],
+            program.programId
+        );
+    }
+
+    function deriveTodoPda(lastTodo) {
+        return anchor.web3.PublicKey.findProgramAddressSync(
+            [
+                Buffer.from("TODO_ACCOUNT9"),
+                payer.publicKey.toBuffer(),
+                Buffer.from([lastTodo]),
+            ],
+            program.programId
+        );
+    }
 
     /**创建测试账号 */
     let testUser = anchor.web3.Keypair.generate();
@@ -41,13 +53,8 @@ describe("solana-todo-list", () => {
         );
         console.log(`airdrop:${signature}`);
     });
-    function derivePageVisitsPda(seed: string) {
-        return anchor.web3.PublicKey.findProgramAddressSync(
-            [Buffer.from(seed), payer.publicKey.toBuffer()],
-            program.programId
-        );
-    }
-    let [userProfilePda] = derivePageVisitsPda("USER_ACCOUNT8");
+
+    let [userProfilePda] = deriveUserPda();
     it("init a user profile pad", async () => {
         const tx = await program.methods
             .initializeUser()
@@ -61,13 +68,7 @@ describe("solana-todo-list", () => {
         console.log("create a user profile pad:", tx);
     });
 
-    function deriveTodoPda(seed: string) {
-        return anchor.web3.PublicKey.findProgramAddressSync(
-            [Buffer.from(seed), payer.publicKey.toBuffer(), Buffer.from([0])],
-            program.programId
-        );
-    }
-    let [todoAccountPda] = deriveTodoPda("TODO_ACCOUNT8");
+    let [todoAccountPda] = deriveTodoPda(0);
     it("add todo to PDA", async () => {
         const tx = await program.methods
             .addTodo("test")
