@@ -206,9 +206,6 @@ export const useTodo = () => {
                 console.log(error);
                 toast.error(error.toString());
             });
-        // .finally(() => {
-        //     setInput("");
-        // });
     };
 
     const updateStaticTodo = (idx: number, content: string) => {
@@ -244,7 +241,6 @@ export const useTodo = () => {
             })
             .rpc()
             .then(tx => {
-                console.log("🚀 ~ file: todo.ts:247 ~ removeTodo ~ tx:", tx);
                 toast.success("Successfully mark todo!");
                 setTransactionPending(false);
             })
