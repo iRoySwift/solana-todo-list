@@ -5,7 +5,7 @@ pub mod states;
 
 use crate::instructions::*;
 
-declare_id!("3po4TvdNdTRgnwYH4LFB5HviQydScKK58LrSDpSEWmSf");
+declare_id!("6jgtKSDrYm7eNRK9FWjLiY2CswUfFzAwj6nfddfKLA6B");
 
 #[program]
 pub mod anchor_dapp_todo {

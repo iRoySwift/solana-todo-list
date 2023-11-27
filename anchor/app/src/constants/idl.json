@@ -1,6 +1,6 @@
 {
     "version": "0.1.0",
-    "name": "solana_todo_list",
+    "name": "anchor_dapp_todo",
     "instructions": [
         {
             "name": "initializeUser",

@@ -96,7 +96,7 @@ export const useTodo = () => {
         if (!(publicKey && program)) return;
         const [userPda, userBump] =
             anchor.web3.PublicKey.findProgramAddressSync(
-                [utf8.encode("USER_ACCOUNT1"), publicKey.toBuffer()],
+                [utf8.encode("USER_ACCOUNT"), publicKey.toBuffer()],
                 program?.programId
             );
         return userPda;
@@ -109,7 +109,7 @@ export const useTodo = () => {
             const [todoPda, todoBump] =
                 anchor.web3.PublicKey.findProgramAddressSync(
                     [
-                        utf8.encode("TODO_ACCOUNT1"),
+                        utf8.encode("TODO_ACCOUNT"),
                         publicKey.toBuffer(),
                         Buffer.from([lastTodo]),
                     ],
@@ -334,10 +334,12 @@ export const useTodo = () => {
         program?.account.userAccount
             .fetch(await userPda)
             .then((res: any) => {
+                console.log("🚀 ~ file: todo.ts:337 ~ .then ~ res:", res);
                 setLastTodo(res.lastTodo);
                 getTodoAccount();
             })
-            .catch(() => {
+            .catch(err => {
+                console.log("🚀 ~ file: todo.ts:341 ~ init ~ err:", err);
                 initializeUser();
             })
             .finally(() => {

@@ -1,6 +1,6 @@
 import * as anchor from "@coral-xyz/anchor";
 import { Program } from "@coral-xyz/anchor";
-import { SolanaTodoList } from "../target/types/solana_todo_list";
+import { AnchorDappTodo } from "../target/types/anchor_dapp_todo";
 import { publicKey } from "@coral-xyz/anchor/dist/cjs/utils";
 import { authorFilter } from "./authorFilter";
 
@@ -9,7 +9,7 @@ describe("solana-todo-list", () => {
     const provider = anchor.AnchorProvider.env();
     anchor.setProvider(provider);
     const payer = provider.wallet as anchor.Wallet;
-    const program = anchor.workspace.SolanaTodoList as Program<SolanaTodoList>;
+    const program = anchor.workspace.AnchorDappTodo as Program<AnchorDappTodo>;
 
     function deriveUserPda() {
         return anchor.web3.PublicKey.findProgramAddressSync(

@@ -13,5 +13,5 @@ impl TodoAccount {
     pub const ACCOUNT_SPACE: usize = 8 + std::mem::size_of::<TodoAccount>();
 
     #[constant]
-    pub const SEED_PREFIX: &[u8] = b"TODO_ACCOUNT9";
+    pub const SEED_PREFIX: &[u8] = b"TODO_ACCOUNT";
 }

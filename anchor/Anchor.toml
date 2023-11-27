@@ -2,7 +2,7 @@
 seeds = false
 skip-lint = false
 [programs.localnet]
-anchor_dapp_todo = "3po4TvdNdTRgnwYH4LFB5HviQydScKK58LrSDpSEWmSf"
+anchor_dapp_todo = "6jgtKSDrYm7eNRK9FWjLiY2CswUfFzAwj6nfddfKLA6B"
 
 [registry]
 url = "https://api.apr.dev"
