@@ -8,14 +8,14 @@ interface Props {
     state: iState;
     showClearButton: boolean;
     handleStateChange: (v: iState) => void;
-    clearAllCompleted: () => void;
+    clearCompleted: () => void;
 }
 const TodoFooter: React.FC<Props> = ({
     leftItem,
     state,
     showClearButton,
     handleStateChange,
-    clearAllCompleted,
+    clearCompleted,
 }) => {
     return (
         <TodoFooterContainer>
@@ -37,7 +37,7 @@ const TodoFooter: React.FC<Props> = ({
                     Completed
                 </li>
                 {showClearButton && (
-                    <li onClick={clearAllCompleted}>Clear All Completed</li>
+                    <li onClick={clearCompleted}>Clear All Completed</li>
                 )}
             </ul>
         </TodoFooterContainer>

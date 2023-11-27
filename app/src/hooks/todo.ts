@@ -219,6 +219,32 @@ export const useTodo = () => {
         );
     };
 
+    const updateTodo = (idx: number, content: string) => {
+        if (!(publicKey && program)) return;
+        let userPda = getUserPda();
+        let todoPda = getTodoPda(idx);
+        if (!userPda || !todoPda) return;
+        setTransactionPending(true);
+        return program.methods
+            .updateTodo(idx, content)
+            .accounts({
+                todoAccount: todoPda,
+                userAccount: userPda,
+                authority: publicKey,
+                systemProgram: SystemProgram.programId,
+            })
+            .rpc()
+            .then(tx => {
+                toast.success("Successfully update todo!");
+                setTransactionPending(false);
+            })
+            .catch(error => {
+                console.log(error);
+                let message = error.error.message || error.error.errorMessage;
+                toast.error(message);
+            });
+    };
+
     const removeStaticTodo = (idx: number) => {
         setTodoList(preTodoList =>
             preTodoList.filter(todo => todo.account.idx !== idx)
@@ -390,6 +416,7 @@ export const useTodo = () => {
         addStaticTodo,
         markTodo,
         markStaticTodo,
+        updateTodo,
         updateStaticTodo,
         removeTodo,
         removeStaticTodo,

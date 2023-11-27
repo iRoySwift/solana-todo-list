@@ -108,7 +108,7 @@ export const TodoFooterContainer = styled(Box)({
         lineHeight: "30px",
     },
     "& ul": {
-        width: "350px",
+        // width: "350px",
         listStyle: "none",
         display: "flex",
         flexDirection: "row",

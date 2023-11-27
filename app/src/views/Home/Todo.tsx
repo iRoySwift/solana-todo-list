@@ -1,3 +1,4 @@
+"use client";
 import React, { ChangeEvent, KeyboardEvent, useState } from "react";
 import { TodoBox } from "./Home.styled";
 import {
@@ -13,14 +14,13 @@ interface Props {
     content: string;
     idx: number;
     marked: boolean;
-    deleteTodo: (idx: number) => void;
+    removeTodo: (idx: number) => void;
     markTodo: (idx: number, checked: boolean) => void;
-    updateTodoContent: (idx: number, content: string) => void;
+    updateTodo: (idx: number, content: string) => Promise<any>;
 }
 
 const Todo: React.FC<Props> = props => {
-    let { content, idx, marked, deleteTodo, markTodo, updateTodoContent } =
-        props;
+    let { content, idx, marked, removeTodo, markTodo, updateTodo } = props;
     const [isEdit, setIsEdit] = useState(false);
     const [lineKey, setLineKey] = useState(content);
     const [] = useState("");
@@ -34,8 +34,13 @@ const Todo: React.FC<Props> = props => {
     };
     const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.key !== "Enter" || !lineKey.trim().length) return;
-        updateTodoContent(idx, lineKey);
-        setIsEdit(false);
+        updateTodo(idx, lineKey)
+            .then(() => {
+                setIsEdit(false);
+            })
+            .finally(() => {
+                setLineKey(content);
+            });
     };
 
     return (
@@ -66,7 +71,7 @@ const Todo: React.FC<Props> = props => {
                     className="close"
                     color="error"
                     aria-label="delete"
-                    onClick={() => deleteTodo(idx)}>
+                    onClick={() => removeTodo(idx)}>
                     <CloseIcon />
                 </IconButton>
             )}
