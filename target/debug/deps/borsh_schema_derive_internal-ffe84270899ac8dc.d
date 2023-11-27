@@ -1,0 +1,10 @@
+/Users/roy/Project/Solana/solana-todo-list/target/debug/deps/borsh_schema_derive_internal-ffe84270899ac8dc.rmeta: /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.10.3/src/lib.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.10.3/src/helpers.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.10.3/src/enum_schema.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.10.3/src/struct_schema.rs
+
+/Users/roy/Project/Solana/solana-todo-list/target/debug/deps/libborsh_schema_derive_internal-ffe84270899ac8dc.rlib: /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.10.3/src/lib.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.10.3/src/helpers.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.10.3/src/enum_schema.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.10.3/src/struct_schema.rs
+
+/Users/roy/Project/Solana/solana-todo-list/target/debug/deps/borsh_schema_derive_internal-ffe84270899ac8dc.d: /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.10.3/src/lib.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.10.3/src/helpers.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.10.3/src/enum_schema.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.10.3/src/struct_schema.rs
+
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.10.3/src/lib.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.10.3/src/helpers.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.10.3/src/enum_schema.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.10.3/src/struct_schema.rs:

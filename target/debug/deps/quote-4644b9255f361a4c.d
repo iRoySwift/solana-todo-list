@@ -1,0 +1,13 @@
+/Users/roy/Project/Solana/solana-todo-list/target/debug/deps/quote-4644b9255f361a4c.rmeta: /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/lib.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/ext.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/format.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/ident_fragment.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/to_tokens.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/runtime.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/spanned.rs
+
+/Users/roy/Project/Solana/solana-todo-list/target/debug/deps/libquote-4644b9255f361a4c.rlib: /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/lib.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/ext.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/format.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/ident_fragment.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/to_tokens.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/runtime.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/spanned.rs
+
+/Users/roy/Project/Solana/solana-todo-list/target/debug/deps/quote-4644b9255f361a4c.d: /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/lib.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/ext.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/format.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/ident_fragment.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/to_tokens.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/runtime.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/spanned.rs
+
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/lib.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/ext.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/format.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/ident_fragment.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/to_tokens.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/runtime.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/quote-1.0.33/src/spanned.rs:

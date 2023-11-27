@@ -1,0 +1,8 @@
+/Users/roy/Project/Solana/solana-todo-list/target/debug/deps/log-cc2288a10d4fc172.rmeta: /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/log-0.4.20/src/lib.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/log-0.4.20/src/macros.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/log-0.4.20/src/serde.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/log-0.4.20/src/__private_api.rs
+
+/Users/roy/Project/Solana/solana-todo-list/target/debug/deps/log-cc2288a10d4fc172.d: /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/log-0.4.20/src/lib.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/log-0.4.20/src/macros.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/log-0.4.20/src/serde.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/log-0.4.20/src/__private_api.rs
+
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/log-0.4.20/src/lib.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/log-0.4.20/src/macros.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/log-0.4.20/src/serde.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/log-0.4.20/src/__private_api.rs:

@@ -1,0 +1,15 @@
+/Users/roy/Project/Solana/solana-todo-list/target/debug/deps/anyhow-e931e3fac3b3a979.rmeta: /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/lib.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/backtrace.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/chain.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/context.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/ensure.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/error.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/fmt.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/kind.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/macros.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/ptr.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/wrapper.rs
+
+/Users/roy/Project/Solana/solana-todo-list/target/debug/deps/anyhow-e931e3fac3b3a979.d: /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/lib.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/backtrace.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/chain.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/context.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/ensure.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/error.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/fmt.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/kind.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/macros.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/ptr.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/wrapper.rs
+
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/lib.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/backtrace.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/chain.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/context.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/ensure.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/error.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/fmt.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/kind.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/macros.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/ptr.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/anyhow-1.0.75/src/wrapper.rs:

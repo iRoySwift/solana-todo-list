@@ -1,0 +1,10 @@
+/Users/roy/Project/Solana/solana-todo-list/target/debug/deps/borsh_schema_derive_internal-fd0edd1cc3bfc52a.rmeta: /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.9.3/src/lib.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.9.3/src/helpers.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.9.3/src/enum_schema.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.9.3/src/struct_schema.rs
+
+/Users/roy/Project/Solana/solana-todo-list/target/debug/deps/libborsh_schema_derive_internal-fd0edd1cc3bfc52a.rlib: /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.9.3/src/lib.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.9.3/src/helpers.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.9.3/src/enum_schema.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.9.3/src/struct_schema.rs
+
+/Users/roy/Project/Solana/solana-todo-list/target/debug/deps/borsh_schema_derive_internal-fd0edd1cc3bfc52a.d: /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.9.3/src/lib.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.9.3/src/helpers.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.9.3/src/enum_schema.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.9.3/src/struct_schema.rs
+
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.9.3/src/lib.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.9.3/src/helpers.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.9.3/src/enum_schema.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/borsh-schema-derive-internal-0.9.3/src/struct_schema.rs:

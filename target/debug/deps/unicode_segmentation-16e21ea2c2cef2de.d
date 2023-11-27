@@ -1,0 +1,11 @@
+/Users/roy/Project/Solana/solana-todo-list/target/debug/deps/unicode_segmentation-16e21ea2c2cef2de.rmeta: /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/unicode-segmentation-1.10.1/src/lib.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/unicode-segmentation-1.10.1/src/grapheme.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/unicode-segmentation-1.10.1/src/sentence.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/unicode-segmentation-1.10.1/src/word.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/unicode-segmentation-1.10.1/src/tables.rs
+
+/Users/roy/Project/Solana/solana-todo-list/target/debug/deps/libunicode_segmentation-16e21ea2c2cef2de.rlib: /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/unicode-segmentation-1.10.1/src/lib.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/unicode-segmentation-1.10.1/src/grapheme.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/unicode-segmentation-1.10.1/src/sentence.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/unicode-segmentation-1.10.1/src/word.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/unicode-segmentation-1.10.1/src/tables.rs
+
+/Users/roy/Project/Solana/solana-todo-list/target/debug/deps/unicode_segmentation-16e21ea2c2cef2de.d: /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/unicode-segmentation-1.10.1/src/lib.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/unicode-segmentation-1.10.1/src/grapheme.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/unicode-segmentation-1.10.1/src/sentence.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/unicode-segmentation-1.10.1/src/word.rs /Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/unicode-segmentation-1.10.1/src/tables.rs
+
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/unicode-segmentation-1.10.1/src/lib.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/unicode-segmentation-1.10.1/src/grapheme.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/unicode-segmentation-1.10.1/src/sentence.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/unicode-segmentation-1.10.1/src/word.rs:
+/Users/roy/.cargo/registry/src/rsproxy.cn-0dccff568467c15b/unicode-segmentation-1.10.1/src/tables.rs:
