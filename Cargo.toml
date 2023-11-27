@@ -1,5 +1,6 @@
 [workspace]
 members = [
-    'anchor/programs/*'
+    'anchor/programs/*',
+    'native/programs'
 ]
 exclude = []

@@ -1,0 +1,231 @@
+{
+    "version": "0.1.0",
+    "name": "solana_todo_list",
+    "instructions": [
+        {
+            "name": "initializeUser",
+            "accounts": [
+                {
+                    "name": "userAccount",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "authority",
+                    "isMut": true,
+                    "isSigner": true
+                },
+                {
+                    "name": "systemProgram",
+                    "isMut": false,
+                    "isSigner": false
+                }
+            ],
+            "args": []
+        },
+        {
+            "name": "addTodo",
+            "accounts": [
+                {
+                    "name": "todoAccount",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "userAccount",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "authority",
+                    "isMut": true,
+                    "isSigner": true
+                },
+                {
+                    "name": "systemProgram",
+                    "isMut": false,
+                    "isSigner": false
+                }
+            ],
+            "args": [
+                {
+                    "name": "content",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "markTodo",
+            "accounts": [
+                {
+                    "name": "todoAccount",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "userAccount",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "authority",
+                    "isMut": true,
+                    "isSigner": true
+                },
+                {
+                    "name": "systemProgram",
+                    "isMut": false,
+                    "isSigner": false
+                }
+            ],
+            "args": [
+                {
+                    "name": "todoIdx",
+                    "type": "u8"
+                }
+            ]
+        },
+        {
+            "name": "updateTodo",
+            "accounts": [
+                {
+                    "name": "todoAccount",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "userAccount",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "authority",
+                    "isMut": true,
+                    "isSigner": true
+                },
+                {
+                    "name": "systemProgram",
+                    "isMut": false,
+                    "isSigner": false
+                }
+            ],
+            "args": [
+                {
+                    "name": "todoIdx",
+                    "type": "u8"
+                },
+                {
+                    "name": "content",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "removeTodo",
+            "accounts": [
+                {
+                    "name": "todoAccount",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "userAccount",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "authority",
+                    "isMut": true,
+                    "isSigner": true
+                },
+                {
+                    "name": "systemProgram",
+                    "isMut": false,
+                    "isSigner": false
+                }
+            ],
+            "args": [
+                {
+                    "name": "todoIdx",
+                    "type": "u8"
+                }
+            ]
+        }
+    ],
+    "accounts": [
+        {
+            "name": "TodoAccount",
+            "type": {
+                "kind": "struct",
+                "fields": [
+                    {
+                        "name": "authority",
+                        "type": "publicKey"
+                    },
+                    {
+                        "name": "idx",
+                        "type": "u8"
+                    },
+                    {
+                        "name": "content",
+                        "type": "string"
+                    },
+                    {
+                        "name": "marked",
+                        "type": "bool"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "UserAccount",
+            "type": {
+                "kind": "struct",
+                "fields": [
+                    {
+                        "name": "authority",
+                        "type": "publicKey"
+                    },
+                    {
+                        "name": "lastTodo",
+                        "type": "u8"
+                    },
+                    {
+                        "name": "todoTotal",
+                        "type": "u8"
+                    }
+                ]
+            }
+        }
+    ],
+    "errors": [
+        {
+            "code": 6000,
+            "name": "Unauthorized",
+            "msg": "You are not authoritied to perform this action."
+        },
+        {
+            "code": 6001,
+            "name": "NotAllow",
+            "msg": "Not allowed"
+        },
+        {
+            "code": 6002,
+            "name": "MathOverflow",
+            "msg": "Math operation overflow"
+        },
+        {
+            "code": 6003,
+            "name": "AlreadyMarked",
+            "msg": "Already Marked"
+        },
+        {
+            "code": 6004,
+            "name": "UpdateContentMarked",
+            "msg": "Already Marked can't update"
+        }
+    ],
+    "metadata": {
+        "address": "6jgtKSDrYm7eNRK9FWjLiY2CswUfFzAwj6nfddfKLA6B"
+    }
+}
