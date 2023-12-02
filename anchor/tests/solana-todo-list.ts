@@ -84,7 +84,7 @@ describe("solana-todo-list", () => {
         console.log("Create the todo tracking PDA:", tx);
     });
 
-    it("update todo", async () => {
+    it("mark todo", async () => {
         const tx = await program.methods
             .markTodo(0)
             .accounts({
