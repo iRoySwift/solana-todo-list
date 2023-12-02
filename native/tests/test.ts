@@ -13,6 +13,8 @@ import {
     initializeUser,
     testUser,
 } from "../ts";
+import { updateTodo } from "../ts/instructions/updateTodo";
+import { markTodo } from "../ts/instructions/markTodo";
 
 // Step 1 连接到Solana网络 devnet
 const devnet = clusterApiUrl("devnet");
@@ -70,12 +72,38 @@ describe("todo list", async () => {
     });
     it("add todo", async () => {
         const [todoPda, bump] = deriveTodoPda();
-        const ix = addTodo(todoPda, payer.publicKey, program.publicKey, 1);
+        const ix = addTodo(todoPda, payer.publicKey, program.publicKey, "test");
         const tx = await sendAndConfirmTransaction(
             connection,
             new Transaction().add(ix),
             [payer]
         );
         console.log("🚀 ~ file: test.ts:63 ~ it ~ tx:", tx);
+    });
+    it("update todo content", async () => {
+        const [todoPda, bump] = deriveTodoPda();
+        const ix = updateTodo(
+            todoPda,
+            payer.publicKey,
+            program.publicKey,
+            0,
+            "test2"
+        );
+        const tx = await sendAndConfirmTransaction(
+            connection,
+            new Transaction().add(ix),
+            [payer]
+        );
+        console.log("🚀 ~ file: test.ts:84 ~ it ~ tx:", tx);
+    });
+    it("mark todo", async () => {
+        const [todoPda, bump] = deriveTodoPda();
+        const ix = markTodo(todoPda, payer.publicKey, program.publicKey, 0);
+        const tx = await sendAndConfirmTransaction(
+            connection,
+            new Transaction().add(ix),
+            [payer]
+        );
+        console.log("🚀 ~ file: test.ts:106 ~ it ~ tx:", tx);
     });
 });
