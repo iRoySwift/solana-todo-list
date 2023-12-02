@@ -7,7 +7,12 @@ import {
     sendAndConfirmTransaction,
 } from "@solana/web3.js";
 import { describe, it } from "node:test";
-import { addTodo, createKeypairFromFile, initializeUser } from "../ts";
+import {
+    addTodo,
+    createKeypairFromFile,
+    initializeUser,
+    testUser,
+} from "../ts";
 
 // Step 1 连接到Solana网络 devnet
 const devnet = clusterApiUrl("devnet");
@@ -42,6 +47,17 @@ function deriveTodoPda() {
 }
 
 describe("todo list", async () => {
+    // !testUser
+    // it("test user", async () => {
+    //     const [userPda, bump] = deriveUserPda();
+    //     const ix = testUser(userPda, payer.publicKey, program.publicKey);
+    //     const tx = await sendAndConfirmTransaction(
+    //         connection,
+    //         new Transaction().add(ix),
+    //         [payer]
+    //     );
+    //     console.log("🚀 ~ file: test.ts:58 ~ it ~ tx:", tx);
+    // });
     it("init user", async () => {
         const [userPda, bump] = deriveUserPda();
         const ix = initializeUser(userPda, payer.publicKey, program.publicKey);
@@ -54,7 +70,7 @@ describe("todo list", async () => {
     });
     it("add todo", async () => {
         const [todoPda, bump] = deriveTodoPda();
-        const ix = addTodo(todoPda, payer.publicKey, program.publicKey, "test");
+        const ix = addTodo(todoPda, payer.publicKey, program.publicKey, 1);
         const tx = await sendAndConfirmTransaction(
             connection,
             new Transaction().add(ix),
