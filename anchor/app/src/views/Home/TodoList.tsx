@@ -49,14 +49,16 @@ const TodoList: React.FC<Props> = () => {
                 <Header>
                     <Typography variant="h1">todos</Typography>
                     <SearchBox>
-                        {todoList.length > 0 && (
-                            <KeyboardArrowDownIcon
-                                className="toggle-all"
-                                fontSize="large"
-                                color={activeTodo ? "disabled" : "primary"}
-                                onClick={toggleAll}
-                            />
-                        )}
+                        {
+                            // todoList.length > 0 && (
+                            // <KeyboardArrowDownIcon
+                            //     className="toggle-all"
+                            //     fontSize="large"
+                            //     color={activeTodo ? "disabled" : "primary"}
+                            //     onClick={toggleAll}
+                            // />
+                            // )
+                        }
                         <InputBase
                             value={input}
                             className="input-base"

@@ -16,7 +16,7 @@ interface Props {
     marked: boolean;
     removeTodo: (idx: number) => void;
     markTodo: (idx: number, checked: boolean) => void;
-    updateTodo: (idx: number, content: string) => Promise<any>;
+    updateTodo: (idx: number, content: string) => Promise<void> | undefined;
 }
 
 const Todo: React.FC<Props> = props => {
@@ -35,7 +35,7 @@ const Todo: React.FC<Props> = props => {
     const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
         if (e.key !== "Enter" || !lineKey.trim().length) return;
         updateTodo(idx, lineKey)
-            .then(() => {
+            ?.then(() => {
                 setIsEdit(false);
             })
             .finally(() => {

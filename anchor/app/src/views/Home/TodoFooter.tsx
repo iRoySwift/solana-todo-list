@@ -36,9 +36,11 @@ const TodoFooter: React.FC<Props> = ({
                     onClick={() => handleStateChange("completed")}>
                     Completed
                 </li>
-                {showClearButton && (
-                    <li onClick={clearCompleted}>Clear All Completed</li>
-                )}
+                {
+                    // showClearButton && (
+                    //     <li onClick={clearCompleted}>Clear All Completed</li>
+                    // )
+                }
             </ul>
         </TodoFooterContainer>
     );
