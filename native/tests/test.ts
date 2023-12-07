@@ -11,6 +11,7 @@ import {
     addTodo,
     createKeypairFromFile,
     initializeUser,
+    removeTodo,
     testUser,
 } from "../ts";
 import { updateTodo } from "../ts/instructions/updateTodo";
@@ -105,5 +106,16 @@ describe("todo list", async () => {
             [payer]
         );
         console.log("🚀 ~ file: test.ts:106 ~ it ~ tx:", tx);
+    });
+    it("remove todo", async () => {
+        console.log("s");
+        const [todoPda, bump] = deriveTodoPda();
+        const ix = removeTodo(todoPda, payer.publicKey, program.publicKey, 0);
+        const tx = await sendAndConfirmTransaction(
+            connection,
+            new Transaction().add(ix),
+            [payer]
+        );
+        console.log("🚀 ~ file: test.ts:119 ~ it ~ tx:", tx);
     });
 });
