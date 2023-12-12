@@ -15,7 +15,6 @@ import {
 } from "@solana/wallet-adapter-react";
 import { SystemProgram } from "@solana/web3.js";
 import * as anchor from "@coral-xyz/anchor";
-import { Program } from "@coral-xyz/anchor";
 import { utf8 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
 import toast from "react-hot-toast";
 // import todoIdl from "../../../target/idl/solana_todo_list.json";
