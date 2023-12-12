@@ -15,7 +15,6 @@ import {
 } from "@solana/wallet-adapter-react";
 import { SystemProgram } from "@solana/web3.js";
 import * as anchor from "@coral-xyz/anchor";
-import { utf8 } from "@coral-xyz/anchor/dist/cjs/utils/bytes";
 import toast from "react-hot-toast";
 // import todoIdl from "../../../target/idl/solana_todo_list.json";
 import todoIdl from "../constants/idl.json";
@@ -95,7 +94,7 @@ export const useTodo = () => {
         if (!(publicKey && program)) return;
         const [userPda, userBump] =
             anchor.web3.PublicKey.findProgramAddressSync(
-                [utf8.encode("USER_ACCOUNT"), publicKey.toBuffer()],
+                [Buffer.from("USER_ACCOUNT"), publicKey.toBuffer()],
                 program?.programId
             );
         return userPda;
@@ -108,7 +107,7 @@ export const useTodo = () => {
             const [todoPda, todoBump] =
                 anchor.web3.PublicKey.findProgramAddressSync(
                     [
-                        utf8.encode("TODO_ACCOUNT"),
+                        Buffer.from("TODO_ACCOUNT"),
                         publicKey.toBuffer(),
                         Buffer.from([lastTodo]),
                     ],
