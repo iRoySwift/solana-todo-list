@@ -1,7 +1,7 @@
 use anchor_lang::prelude::*;
 
 #[account]
-#[derive(Default, Debug)]
+#[derive(Default, Debug, InitSpace)]
 pub struct UserAccount {
     pub authority: Pubkey,
     pub last_todo: u8,
