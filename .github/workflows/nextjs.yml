@@ -27,11 +27,11 @@ concurrency:
 jobs:
   # Build job
   build:
-    runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash
         working-directory: ./anchor/app
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -88,6 +88,10 @@ jobs:
 
   # Deployment job
   deploy:
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./anchor/app
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
