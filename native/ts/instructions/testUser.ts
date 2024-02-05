@@ -3,23 +3,28 @@ import {
   SystemProgram,
   TransactionInstruction,
 } from "@solana/web3.js";
-import { RemoveTodo } from "../states";
+import { InitializeUser, UserAccount } from "../states";
 import { MyInstruction } from ".";
 
-export const removeTodo = (
-  userAccount: PublicKey,
+/**
+ * init user pda
+ * @param target
+ * @param payer
+ * @param programId
+ * @returns TransactionInstruction
+ */
+export const testUser = (
   target: PublicKey,
   payer: PublicKey,
-  programId: PublicKey,
-  idx: number
+  programId: PublicKey
 ): TransactionInstruction => {
-  const data = new RemoveTodo({
-    instruction: MyInstruction.RemoveTodo,
-    idx,
+  const data = new UserAccount({
+    authority: payer.toString(),
+    lastTodo: 0,
+    todoTotal: 0,
   }).toBuffer();
   const ix = new TransactionInstruction({
     keys: [
-      { pubkey: userAccount, isSigner: false, isWritable: true },
       { pubkey: target, isSigner: false, isWritable: true },
       { pubkey: payer, isSigner: true, isWritable: true },
       { pubkey: SystemProgram.programId, isSigner: false, isWritable: false },

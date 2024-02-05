@@ -1,0 +1,33 @@
+{
+    "name": "native",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "directories": {
+        "test": "tests"
+    },
+    "type": "module",
+    "scripts": {
+        "test": "ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/mocha": "^10.0.6",
+        "@types/node": "^20.10.0",
+        "dotenv": "^16.3.1",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-plugin-prettier": "^5.0.1",
+        "mocha": "^10.2.0",
+        "prettier": "^3.1.0",
+        "ts-mocha": "^10.0.0",
+        "typescript": "^5.3.2"
+    },
+    "dependencies": {
+        "@solana/spl-token": "^0.3.9",
+        "@solana/web3.js": "^1.87.6",
+        "@types/chai": "^4.3.11",
+        "borsh": "^0.7.0",
+        "chai": "^4.3.10"
+    }
+}

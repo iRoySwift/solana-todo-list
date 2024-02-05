@@ -3,31 +3,26 @@ import {
     SystemProgram,
     TransactionInstruction,
 } from "@solana/web3.js";
-import { AddTodo } from "../states/addTodo";
+import { InitializeUser } from "../states";
 import { MyInstruction } from ".";
 
 /**
- * add todo pda
+ * init user pda
  * @param target
  * @param payer
  * @param programId
- * @param content
  * @returns TransactionInstruction
  */
-export const addTodo = (
-    userAccount: PublicKey,
+export const initializeUser = (
     target: PublicKey,
     payer: PublicKey,
-    programId: PublicKey,
-    content: string
+    programId: PublicKey
 ): TransactionInstruction => {
-    const data = new AddTodo({
-        instruction: MyInstruction.AddTodo,
-        content,
+    const data = new InitializeUser({
+        instruction: MyInstruction.InitializeUser,
     }).toBuffer();
     const ix = new TransactionInstruction({
         keys: [
-            { pubkey: userAccount, isSigner: false, isWritable: true },
             { pubkey: target, isSigner: false, isWritable: true },
             { pubkey: payer, isSigner: true, isWritable: true },
             {

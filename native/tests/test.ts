@@ -23,7 +23,7 @@ const connection = new Connection(process.env.DEVNET || devnet, "confirmed");
 
 // Step 2 创建者账号信息（private key）
 // const signer = Keypair.fromSecretKey(new Uint8Array(secretKeyArray));
-const payer = createKeypairFromFile(
+const signer = createKeypairFromFile(
   require("os").homedir() + "/.config/solana/id.json"
 );
 
@@ -33,14 +33,18 @@ const program = createKeypairFromFile(
 
 function deriveUserPda() {
   return PublicKey.findProgramAddressSync(
-    [Buffer.from("USER_ACCOUNT"), payer.publicKey.toBuffer()],
+    [Buffer.from("USER_ACCOUNT"), signer.publicKey.toBuffer()],
     program.publicKey
   );
 }
 
-function deriveTodoPda() {
+function deriveTodoPda(idx) {
   return PublicKey.findProgramAddressSync(
-    [Buffer.from("TODO_ACCOUNT"), payer.publicKey.toBuffer(), Buffer.from([0])],
+    [
+      Buffer.from("TODO_ACCOUNT"),
+      signer.publicKey.toBuffer(),
+      Buffer.from([idx]),
+    ],
     program.publicKey
   );
 }
@@ -49,78 +53,88 @@ describe("todo list", async () => {
   // !testUser
   it("test user", { skip: true }, async () => {
     const [userPda, bump] = deriveUserPda();
-    const ix = testUser(userPda, payer.publicKey, program.publicKey);
+    const ix = testUser(userPda, signer.publicKey, program.publicKey);
     const tx = await sendAndConfirmTransaction(
       connection,
       new Transaction().add(ix),
-      [payer]
+      [signer]
     );
     console.log("🚀 ~ file: test.ts:58 ~ it ~ tx:", tx);
   });
 
   it("init user", { skip: true }, async () => {
     const [userPda] = deriveUserPda();
-    const ix = initializeUser(userPda, payer.publicKey, program.publicKey);
+    const ix = initializeUser(userPda, signer.publicKey, program.publicKey);
     const tx = await sendAndConfirmTransaction(
       connection,
       new Transaction().add(ix),
-      [payer]
+      [signer]
     );
     console.log("🚀 ~ file: test.ts:42 ~ it ~ tx:", tx);
     //  wAK3sJFzYohTAFFSdnpMCyoqwR1z7NGjWBPhzSFLoUSPREjgmeuvgNeNQLcfSqcELQZpRbiJxLWaYzZYcApcD5k
   });
   it("add todo", { skip: true }, async () => {
+    let idx = 0;
     const [userPda] = deriveUserPda();
-    const [todoPda] = deriveTodoPda();
+    const [todoPda] = deriveTodoPda(idx);
     const ix = addTodo(
       userPda,
       todoPda,
-      payer.publicKey,
+      signer.publicKey,
       program.publicKey,
       "test"
     );
     const tx = await sendAndConfirmTransaction(
       connection,
       new Transaction().add(ix),
-      [payer]
+      [signer]
     );
     console.log("🚀 ~ file: test.ts:63 ~ it ~ tx:", tx);
     // 4uMh9SdzUvPMGyqs7ZtA4NSJDYjET2exX2QQcungKjg3UVtsiUtgQYMXqfDidcFVfhjm61TRdKzEcRb8BdJYZrGn
   });
-  it("update todo content", async () => {
-    const [todoPda] = deriveTodoPda();
+  it("update todo content", { skip: false }, async () => {
+    let idx = 0;
+    const [todoPda] = deriveTodoPda(idx);
     const ix = updateTodo(
       todoPda,
-      payer.publicKey,
+      signer.publicKey,
       program.publicKey,
-      0,
+      idx,
       "tes2"
     );
     const tx = await sendAndConfirmTransaction(
       connection,
       new Transaction().add(ix),
-      [payer]
+      [signer]
     );
     console.log("🚀 ~ file: test.ts:84 ~ it ~ tx:", tx);
   });
-  it("mark todo", async () => {
-    const [todoPda, bump] = deriveTodoPda();
-    const ix = markTodo(todoPda, payer.publicKey, program.publicKey, 0);
+  it("mark todo", { skip: true }, async () => {
+    let idx = 0;
+    const [todoPda, bump] = deriveTodoPda(idx);
+    const ix = markTodo(todoPda, signer.publicKey, program.publicKey, idx);
     const tx = await sendAndConfirmTransaction(
       connection,
       new Transaction().add(ix),
-      [payer]
+      [signer]
     );
     console.log("🚀 ~ file: test.ts:106 ~ it ~ tx:", tx);
   });
-  it("remove todo", async () => {
-    console.log("s");
-    const [todoPda, bump] = deriveTodoPda();
-    const ix = removeTodo(todoPda, payer.publicKey, program.publicKey, 0);
+  it("remove todo", { skip: true }, async () => {
+    let idx = 0;
+    const [todoPda, bump] = deriveTodoPda(idx);
+    const [userPda] = deriveUserPda();
+    const ix = removeTodo(
+      userPda,
+      todoPda,
+      signer.publicKey,
+      program.publicKey,
+      idx
+    );
     const tx = await sendAndConfirmTransaction(
       connection,
       new Transaction().add(ix),
-      [payer]
+      [signer]
     );
     console.log("🚀 ~ file: test.ts:119 ~ it ~ tx:", tx);
   });
