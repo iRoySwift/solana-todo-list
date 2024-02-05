@@ -81,6 +81,7 @@ pub fn add_todo(program_id: &Pubkey, accounts: &[AccountInfo], content: String) 
 
     invoke_signed(instruction, account_infos, signers_seeds)?;
 
+    // todo_data.serialize(&mut &mut target.data.borrow_mut()[..])?;
     todo_data.serialize(&mut *target.data.borrow_mut())?;
     msg!("todo_data: {:?}", todo_data);
     msg!("target: {:?}", target);
