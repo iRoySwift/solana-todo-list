@@ -49,8 +49,8 @@ pub fn initialize_user(program_id: &Pubkey, accounts: &[AccountInfo]) -> Program
 
     invoke_signed(instruction, account_infos, signers_seeds)?;
 
-    // user_data.serialize(&mut &mut target.data.borrow_mut()[..])?;
-    user_data.serialize(&mut *target.data.borrow_mut())?;
+    user_data.serialize(&mut &mut target.data.borrow_mut()[..])?;
+    // user_data.serialize(&mut *target.data.borrow_mut())?;
     msg!("user_data{:?}", user_data);
     msg!("target:{:?}", target);
     msg!("target data:{:?}", target.data);

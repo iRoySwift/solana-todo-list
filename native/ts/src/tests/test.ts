@@ -13,9 +13,9 @@ import {
   initializeUser,
   removeTodo,
   testUser,
-} from "../ts";
-import { updateTodo } from "../ts/instructions/updateTodo";
-import { markTodo } from "../ts/instructions/markTodo";
+  updateTodo,
+  markTodo,
+} from "..";
 
 // Step 1 连接到Solana网络 devnet
 const devnet = clusterApiUrl("devnet");
@@ -28,7 +28,7 @@ const signer = createKeypairFromFile(
 );
 
 const program = createKeypairFromFile(
-  "./../target/deploy/native_dapp_todo-keypair.json"
+  "./../../target/deploy/native_dapp_todo-keypair.json"
 );
 
 function deriveUserPda() {
